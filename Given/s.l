@@ -14,7 +14,7 @@ defun double-iterative(y)
 	(cond
 		((not(listp y)) nil)
 		((null y)nil)
-		(t (let (temp nil))
+		(t (let (temp))
 				(do
 					((l nil (append (list (car y) (car y)))))
 					((null y) temp)
