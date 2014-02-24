@@ -14,10 +14,10 @@ defun double-iterative(y)
 	(cond
 		((not(listp y)) nil)
 		((null y)nil)
-		(t (prog (temp)
+		(t (let (temp nil))
 				(do
 					((l nil (append (list (car y) (car y)))))
-					((null y) (return temp))
+					((null y) temp)
 					(cond 
 						((numberp (car y)); for number in list
 							(cond
@@ -39,8 +39,8 @@ defun double-iterative(y)
 					)
 				)
 				
-				(return temp)
-			)
+
+			
 		)
 	)
 )
