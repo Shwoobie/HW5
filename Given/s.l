@@ -23,7 +23,7 @@ defun double-iterative(y)
 							(cond
 								((null l) (setq temp (append (list (car y) (car y))))
 									(setq y (cdr y)))
-								(t (setq temp l) (setq y (cdr y)))
+								(t (append temp l) (setq y (cdr y)))
 							)
 						)
 
@@ -33,7 +33,7 @@ defun double-iterative(y)
 							(cond
 								((null l) (setq temp (append (list (car y) (car y))))
 									(setq y (cdr y)))
-								(t (setq temp l) (setq y (cdr y)))
+								(t (append temp l) (setq y (cdr y)))
 							)
 						)
 					)
