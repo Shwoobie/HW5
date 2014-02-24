@@ -21,8 +21,8 @@ defun double-iterative(y)
 					(cond 
 						((numberp (car y)); for number in list
 							(cond
-								((null l) (setq temp (append (list (car y) (car y)))
-									(setq y (cdr y))))
+								((null l) (setq temp (append (list (car y) (car y))))
+									(setq y (cdr y)))
 								(t (setq temp l) (setq y (cdr y)))
 							)
 						)
@@ -31,8 +31,8 @@ defun double-iterative(y)
 
 						(t ;for list in list 
 							(cond
-								((null l) (setq temp (append (list (car y) (car y)))
-									(setq y (cdr y))))
+								((null l) (setq temp (append (list (car y) (car y))))
+									(setq y (cdr y)))
 								(t (setq temp l) (setq y (cdr y)))
 							)
 						)
