@@ -47,13 +47,11 @@ defun double-recursive(y)
 		((null y)nil)
 
 		((numberp (car y))
-			(mapcar 'numberp )
 			(apply 'append (apply 'mapcar (cons 'list (list y y))))
 
 		)
 		((atom (car y)) nil)
 		(t 
-			(mapcar 'numberp )
 			(apply 'append (apply 'mapcar (cons 'list (list y y))))
 		)
 
