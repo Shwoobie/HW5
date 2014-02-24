@@ -76,7 +76,7 @@ defun double-recursive(y)
 	(cond
 		((or (null l1) (null l2)) nil)
 		(t 
-			(apply 'funcall (fun (car l1) ( car l2))) my-mapcar(fun (cdr l1) (cdr l2))
+			(funcall fun (car l1) ( car l2)) my-mapcar('fun (cdr l1) (cdr l2))
 		) 
 	)
 	
