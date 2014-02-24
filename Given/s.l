@@ -76,7 +76,7 @@ defun double-recursive(y)
 	(cond
 		((or (null l1) (null l2)) nil)
 		(t 
-			(append (list(funcall fun (car l1) ( car l2)) (my-mapcar fun (cdr l1) (cdr l2))))
+			(append (list(funcall fun (car l1) ( car l2))) (my-mapcar fun (cdr l1) (cdr l2)))
 		) 
 	)
 	
