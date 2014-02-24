@@ -86,7 +86,6 @@ defun double-recursive(y)
 	(cond
 		((null x)nil)
 		((listp (car x)) (append (list (car x))) (rewrite(cdr x)))
-		((symbolp (car x))  (append (list (car x))) (rewrite(cdr x)))
 		((numberp (car x)) (append (list (car x))) (rewrite(cdr x)))
 		((atom (car x)) (append (list (car x))) (rewrite(cdr x)))
 		(t (append (list ('cond ))) (rewrite(cdr x)))
