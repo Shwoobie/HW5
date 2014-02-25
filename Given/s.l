@@ -95,7 +95,7 @@ defun double-recursive(y)
 						((listp (cdr x)) (append (list (rewrite (cdr x)) (rewrite (cddr x))) 
 							(cond
 								((null (cdddr x))nil)
-								(t (list (rewrite(cdddr x))))
+								(t (cons 't (list (rewrite(cdddr x)))))
 							)))
 
 					))))
@@ -103,6 +103,7 @@ defun double-recursive(y)
 
 			)
 		)
+		((numberp (car x))  (append (list(car x)) (list (rewrite (cdr x)))))
 		((listp (car x)) (list (rewrite(car x))))
 	)
 )
