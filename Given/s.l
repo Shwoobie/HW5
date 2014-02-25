@@ -103,7 +103,7 @@ defun double-recursive(y)
 
 			)
 		)
-		((numberp (car x))  (append (car x)) (rewrite (cdr x)))
+		((numberp (car x))  (append '(car x) (rewrite (cdr x))))
 		((listp (car x)) (rewrite(car x)))
 	)
 )
