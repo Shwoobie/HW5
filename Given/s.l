@@ -85,8 +85,8 @@ defun double-recursive(y)
 (defun rewrite(x)
 	(cond
 		((null x)nil)
-		((listp (car x)) (list (rewrite(car x))))
 		((numberp x)  x)
+		((listp (car x)) (list (rewrite(car x))))
 		((symbolp (car x)) ;if it's a symbol 
 			(cond
 				((equals (car x) 'if) (cons 'cond (list 
