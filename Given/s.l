@@ -98,7 +98,7 @@ defun double-recursive(y)
 							)))
 
 					))))
-				(t append((list (car x) (rewrite (cdr x)))));if letter
+				(t (append(list (car x) (rewrite (cdr x)))));if letter
 
 			)
 		)
