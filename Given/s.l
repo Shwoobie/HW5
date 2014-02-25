@@ -89,7 +89,7 @@ defun double-recursive(y)
 		((listp (car x)) (list (rewrite(car x))))
 		((symbolp (car x)) ;if it's a symbol 
 			(cond
-				((equals (car x) 'if) (cons 'cond (list 
+				((equal (car x) 'if) (cons 'cond (list 
 					(cond
 						((or (numberp (cdr x)) (null (cdr x))) (append(list (cdr x) (cddr x))))
 						((listp (cdr x)) (append (list (rewrite (cdr x)) (rewrite (cddr x))) 
