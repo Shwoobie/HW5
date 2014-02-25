@@ -104,12 +104,12 @@ defun double-recursive(y)
 											(t (list(cons 't (list(rewrite(car (cddddr x)))))))
 								)))
 							)))
-							(t list(cons 'cond (append(list(append (list(rewrite (cadr x))) (list(rewrite (caddr x)))))
+							(t (list(cons 'cond (append(list(append (list(rewrite (cadr x))) (list(rewrite (caddr x)))))
 							(cond
 
 								((null (cdddr x))nil)
 								(t (list(cons 't (list(rewrite(cadddr x))))))
-							)))))
+							))))))
 						)
 
 					)
