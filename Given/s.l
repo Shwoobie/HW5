@@ -106,15 +106,13 @@ defun double-recursive(y)
 
 					)
 				)
-				((or  ) 
-				)
 				(t 
 					(cond
 						((equal 'cons (car x)) 
 							(append (list(car x))  (list(rewrite (cadr x))) (list(rewrite (cddr x))))
 						)
 						((and (equal 'list (car x)) (listp (cadr x))) 
-							(append (list(car x))  (list(rewrite (cadr x))) (list(rewrite (cddr x)))) 
+							(append (list(car x))  (list(rewrite (cadr x))) (rewrite (cddr x)))
 						)
 						(t (append(list (car x)) (rewrite (cdr x))))
 					)
