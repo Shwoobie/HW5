@@ -76,7 +76,7 @@ defun double-recursive(y)
 	(cond
 		((or (null l1) (null l2)) nil)
 		(t 
-			(append (list(funcall fun (car l1) ( car l2))) (my-mapcar fun (cdr l1) (cdr l2)))
+			(append (list (funcall fun (car l1) ( car l2))) (my-mapcar fun (cdr l1) (cdr l2)))
 		) 
 	)
 	
@@ -85,9 +85,23 @@ defun double-recursive(y)
 (defun rewrite(x)
 	(cond
 		((null x)nil)
-		((listp (car x)) (append (list (car x))) (rewrite(cdr x)))
-		((numberp (car x)) (append (list (car x))) (rewrite(cdr x)))
-		((atom (car x)) (append (list (car x))) (rewrite(cdr x)))
-		(t (append (list 'cond )) (rewrite(cdr x)))
+		((listp (car x)) (list (rewrite(car x))))
+		((numberp (car x)) (append (list (car x)) (rewrite(cdr x))))
+		((symbolp (car x)) ;if it's a symbol 
+			cond(
+				((equals (car x) 'if) (cons 'cond (list 
+					(cond
+						((or (numberp (cdr x)) (null (cdr x))) (append(list (cdr x) (cddr x))))
+						((listp (cdr x)) (append (list (rewrite (cdr x)) (rewrite (cddr x))) 
+							(cond
+								((null (cdddr x))nil)
+								(t (list (rewrite(cdddr x))))
+							)))
+
+					))))
+				(t (list (car x) (rewrite cdr x)));if letter
+
+			)
+		)
 	)
 )
