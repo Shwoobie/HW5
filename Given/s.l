@@ -99,11 +99,11 @@ defun double-recursive(y)
 							)))
 
 					))))
-				(t (append(list (car x) (rewrite (cdr x)))));if letter
+				(t (append(list (car x)) (rewrite (cdr x))));if letter
 
 			)
 		)
-		((numberp (car x))  (append '(car x) (rewrite (cdr x))))
+		((numberp (car x))  (append (list(car x)) (rewrite (cdr x))))
 		((listp (car x)) (rewrite(car x)))
 	)
 )
