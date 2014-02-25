@@ -86,6 +86,7 @@ defun double-recursive(y)
 	(cond
 		((null x)nil)
 		((numberp x)  x)
+		((atom x) x)
 		((symbolp (car x)) ;if it's a symbol 
 			(cond
 				((equal (car x) 'if) (cons 'cond (list 
