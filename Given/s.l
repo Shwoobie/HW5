@@ -89,16 +89,18 @@ defun double-recursive(y)
 		((atom x) x)
 		((symbolp (car x)) ;if it's a symbol 
 			(cond
-				((equal (car x) 'if) (list (cons 'cond (list 
+				((equal (car x) 'if)  
 					(cond
-						((or (numberp (cadr x)) (null (cadr x))) (append(list (cadr x) (caddr x))))
-						((listp (cdr x)) (append (list(rewrite (cadr x))) (list(rewrite (caddr x)))
+						((or (numberp (cadr x)) (null (cadr x))) (list(cons 'cond (list (append(list (cadr x) (caddr x)))))))
+						((listp (cdr x)) (append(list(cons 'cond (list(append (list(rewrite (cdr x))) (list(rewrite (cddr x)))))))
 							(cond
 								((null (cdddr x))nil)
 								(t (list(cons 't (list(rewrite(cadddr x))))))
-							)))
+							))
+						)
 
-					)))))
+					)
+				)
 				(t (append(list (car x)) (rewrite (cdr x))));if letter
 
 			)
