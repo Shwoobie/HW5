@@ -94,13 +94,14 @@ defun double-recursive(y)
 					(cond
 						((or (numberp (cadr x)) (null (cadr x))) (list(cons 'cond (list (append(list (cadr x) (caddr x)))))))
 						((listp (cdr x)) 
-							((equal (caadr x) 'if))
 							(cond
-								((or (numberp (caddr x)) (null (caddr x))) (append (list 'cond) (list (append(list (caddr x) (cadddr x))))))
-							((listp (cddr x)) (append (list 'cond) (append(list(append (list(rewrite (caddr x))) (list(rewrite (cadddr x)))))
+							((equal (caadr x) 'if)
 								(cond
-									((null (cddddr x))nil)
-									(t (list(cons 't (list(rewrite(car (cddddr x)))))))
+									((or (numberp (caddr x)) (null (caddr x))) (append (list 'cond) (list (append(list (caddr x) (cadddr x))))))
+									((listp (cddr x)) (append (list 'cond) (append(list(append (list(rewrite (caddr x))) (list(rewrite (cadddr x)))))
+										(cond
+											((null (cddddr x))nil)
+											(t (list(cons 't (list(rewrite(car (cddddr x)))))))
 								)))
 							)))
 							(t list(cons 'cond (append(list(append (list(rewrite (cadr x))) (list(rewrite (caddr x)))))
@@ -108,7 +109,7 @@ defun double-recursive(y)
 
 								((null (cdddr x))nil)
 								(t (list(cons 't (list(rewrite(cadddr x))))))
-							))))
+							)))))
 						)
 
 					)
