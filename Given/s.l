@@ -112,9 +112,10 @@ defun double-recursive(y)
 		)
 		((numberp (car x)) 
 			(cond
-				((listp (cdr x)) (append (list(car x)) (rewrite (cadr x)) )
+				((numberp (cadr x)) (append (list(car x)) (rewrite (cdr x))));if cdr is a number do this
+				((listp (cadr x)) (append (list(car x)) (rewrite (cdr x)) )
 				)
-				(t (append (list(car x)) (rewrite (cdr x))));if cdr is a number do this
+				(t )
 			)
 
 		)
