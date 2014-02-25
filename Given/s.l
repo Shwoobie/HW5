@@ -99,7 +99,7 @@ defun double-recursive(y)
 							)))
 
 					))))
-				(t (list (car x) (rewrite cdr x)));if letter
+				(t (list (car x) (rewrite (cdr x))));if letter
 
 			)
 		)
