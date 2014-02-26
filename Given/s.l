@@ -3,7 +3,7 @@ defun double-recursive(y)
 	(cond
 		((not(listp y)) nil)
 		((null y)nil)
-		((null (car y)) (append (car y ) (car y) (double-recursive(cdr y))))
+		((null (car y)) (list (car y ) (car y) (double-recursive(cdr y))))
 		((numberp (car y)) (append (list (car y) (car y)) (double-recursive (cdr y))))
 		((atom (car y)) (double-recursive (cdr y)))
 		(t (append (list (car y) (car y)) (double-recursive(cdr y))))
