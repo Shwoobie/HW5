@@ -74,7 +74,7 @@ defun double-recursive(y)
 	(cond
 		((not(listp y)) nil)
 		((null y)nil)
-		((null (car y)) (append(list (car y ) (car y)) (rdouble(cdr y))))
+		((null (car y)) (append(list (car y)) (rdouble(cdr y))))
 		((numberp (car y)) (append (list (car y) (car y)) (rdouble (cdr y))))
 		((atom (car y)) (rdouble(cdr y)))
 		(t (cons (rdouble(car y)) (rdouble(cdr y))))
