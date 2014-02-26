@@ -19,6 +19,13 @@ defun double-recursive(y)
 				((l nil (append (list (car y) (car y)))))
 				((null y) temp)
 				(cond 
+					((null (car y)); for nil in list
+						(cond
+							((null l) (setq temp (append (list (car y) (car y))))
+								(setq y (cdr y)))
+							(t (setq temp (append temp l)) (setq y (cdr y)))
+						)
+					)
 					((numberp (car y)); for number in list
 						(cond
 							((null l) (setq temp (append (list (car y) (car y))))
