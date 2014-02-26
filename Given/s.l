@@ -106,7 +106,7 @@ defun double-recursive(y)
 								((null (cdddr x))nil)
 								(t (list(cons 't (list(rewrite(cadddr x))))))
 							))))
-						((listp (cdr x)) (cons 'cond (append(list(append (list(rewrite (cadr x))) (list(rewrite (caddr x)))))
+						((listp (cdr x)) (cons 'cond (append(list (list(rewrite (cadr x)) (rewrite (caddr x))))
 							(cond
 								((null (cdddr x))nil)
 								(t (list(cons 't (list(rewrite(cadddr x))))))
