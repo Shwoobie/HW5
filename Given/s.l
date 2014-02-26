@@ -132,3 +132,8 @@ defun double-recursive(y)
 		((listp (car x)) (append(rewrite(car x)) (rewrite(cdr x)))) ;if cdr is a list
 	)
 )
+
+(defun check(x)
+	(append (equal (eval x) (eval (rewrite x))) (eval x) (eval (rewrite x)))
+
+)
