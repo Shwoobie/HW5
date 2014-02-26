@@ -134,6 +134,6 @@ defun double-recursive(y)
 )
 
 (defun check(x)
-	(append (list(equal (eval x) (eval (rewrite x)))) (eval x) (eval (rewrite x)))
+	(list(equal (eval x) (eval (rewrite x))) (eval x) (eval (rewrite x))
 
 )
